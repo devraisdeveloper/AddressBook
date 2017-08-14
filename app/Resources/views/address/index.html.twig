@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <p>
+            <a class="btn btn-success" href="/address/create">Add Address</a>              
+    </p>
+
+{% for flashMessage in app.session.flashbag.get('notice') %}
+  <div class="alert alert-danger">
+    {{ flashMessage }}
+    </div>
+
+{% endfor %}
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">ADDRESSES</h3>
+    </div>
+    <div class="panel-body">
+      <table class="table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Actions</th>
+           </tr>
+        </thead>
+        <tbody>
+           {% for address in addresses %}
+            <tr>
+             <td>{{address.name}}</td>
+             <td>{{address.email}}</td>
+             <td><a href="/address/update/{{address.id}}"><span class="glyphicon glyphicon-pencil"></span></a>
+             <a href="/address/delete/{{address.id}}"><span class="glyphicon glyphicon-trash"></span></a>
+             <a href="/address/view/{{address.id}}"><span class="glyphicon glyphicon-eye-open"></span></a>
+             <a href="http://www.maps.google.com/?ll={{address.latitude}},{{address.longitude}}"><span class="glyphicon glyphicon-map-marker"></span></a>
+             </td>
+            </tr>
+          {% endfor%}
+        </tbody>
+      </table>
+</div>
+
+<div class="navigation text-center">
+      {{knp_pagination_render(addresses)}}
+</div>
+{% endblock %}
