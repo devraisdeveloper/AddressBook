@@ -21,6 +21,40 @@ Optional:
 
 ### Important
 
-I used the default bundle. Added only one new class AddressBookController.php
+Project was done on Ubuntu 16.04
 
+I used the default bundle. Added only one new class AddressBookController.php
 You can see pagination when you have more that 5 items in book.
+
+To launch project I used in build server using
+
+~~~
+php bin/console server:start
+~~~
+
+You need first to:
+~~~
+php bin/console doctrine:schema:update --force
+~~~
+
+My url was:
+
+~~~
+http://localhost:8000/addresses
+~~~
+
+The configurations I used:
+
+~~~
+parameters:
+    database_host: 127.0.0.1
+    database_port: null
+    database_name: AddressDatabase
+    database_user: root
+    database_password: null
+    mailer_transport: smtp
+    mailer_host: 127.0.0.1
+    mailer_user: null
+    mailer_password: null
+    secret: ThisTokenIsNotSoSecretChangeIt
+~~~
