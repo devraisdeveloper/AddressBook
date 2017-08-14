@@ -21,6 +21,6 @@ Optional:
 
 ### Important
 
-I used the dafault bundle. Added only one new class AddressBookController.php
+I used the default bundle. Added only one new class AddressBookController.php
 
 You can see pagination when you have more that 5 items in book.
